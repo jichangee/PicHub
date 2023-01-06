@@ -21,7 +21,7 @@ const uploadHelper = (file, folder) => {
     const orginal_base64: any = await fileByBase64(file)
 
     resolve({
-      name: file.name,
+      name: `${file.name.substring(0, file.name.lastIndexOf('.'))}`,
       orginal_size: file.size,
       compress_size: compressFile.size,
       base64data: base64File.replace(/^data:image\/\w+;base64,/, ''),

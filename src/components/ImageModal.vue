@@ -186,7 +186,7 @@ const Upload = async (type) => {
       upload_list.value[i].status = 'uploading'
       // 等待异步操作完成，返回执行结果
       return new Promise((resolve) => {
-        let filename = type == 1 ? `${e.name}_${e.ext}` : `${e.name}_.jpeg`
+        let filename = `${e.name}${e.ext}`
 
         setTimeout(() => {
           axios
@@ -386,7 +386,7 @@ const GetCdnText = (url) => {
 
         <div class="info">
           <div class="name">
-            {{ `${item.name}_.jpeg` }}
+            {{ `${item.name}.png` }}
           </div>
           <div class="tag-box">
             <span class="tag folder">{{ item.folder }}</span>
@@ -475,9 +475,7 @@ const GetCdnText = (url) => {
         <div class="info">
           <div class="name">
             {{
-              item?.upload_type == 1
-                ? `${item.name}_${item.ext}`
-                : `${item.name}_.jpeg`
+              `${item.name}${item.ext}`
             }}
           </div>
           <div class="tag-box">
